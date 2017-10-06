@@ -1,0 +1,19 @@
+{
+  "name": "pretty-letters",
+  "version": "1.0.0",
+  "description": "javascript plugin that modifies html tags",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byverdu/prettyLetters.git"
+  },
+  "author": "albert vallverdu <@byverdu, byverdu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byverdu/prettyLetters/issues"
+  },
+  "homepage": "https://github.com/byverdu/prettyLetters#readme"
+}
