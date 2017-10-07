@@ -1,0 +1,15 @@
+{
+  "extends": ["eslint:recommended", "eslint-config-es5"],
+	"parser": "babel-eslint",
+	"rules": {
+    "no-mixed-spaces-and-tabs": 2,
+    "comma-dangle": [2, "never"],
+    "space-in-parens": [2, "always", { "exceptions": ["()","{}","[]"] } ],
+    "computed-property-spacing": [2, "always"]
+	},
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "mocha": true
+  }
+}

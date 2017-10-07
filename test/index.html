@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>PrettyError jQuery plugin</title>
+      <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+   </head>
+   <body>
+      <div id="mocha"></div>
+      <div id="mocha-fixture">
+        <h3 class="single">Single</h3>
+        <h3 class="double">Single Single are Double</h3>
+      </div>
+      <script src="../node_modules/mocha/mocha.js"></script>
+      <script src="../node_modules/chai/chai.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.min.js"></script> 
+      <script>
+        mocha.setup('bdd');
+      </script>
+      <script src="../node_modules/jquery/dist/jquery.js"></script>
+      <script src="../src/prettyLetters.js"></script>
+      <script src="pluginSpec.js"></script>
+      <!-- <script src="esModuleSpec.js"></script> -->
+      <script>
+      mocha.run();
+      </script>
+
+   </body>
+</html>
