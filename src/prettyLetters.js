@@ -15,6 +15,12 @@ var utils = {
   splitTextWhiteSpace: function( sentence ) {
     return sentence.split( ' ' )
     .map( function ( word ) { return word.split( '' );});
+  },
+  createElement: function( tag, content, className ) {
+    var tempTag = document.createElement( tag );
+    tempTag.textContent = content;
+    tempTag.className = className;
+    return tempTag;
   }
 };
 
@@ -70,6 +76,16 @@ describe( 'Utils', function() {
   });
   it( 'splitTextWhiteSpace, split a word into letters', function() {
     expect( utils.splitTextWhiteSpace( 'single single' )).to.eql([['s', 'i', 'n', 'g', 'l', 'e'], ['s', 'i', 'n', 'g', 'l', 'e']]);
+  });
+  it( 'has a createElement property', function() {
+    expect( utils ).to.have.property( 'createElement' )
+      .and.is.a( 'Function' );
+  });
+  it( 'createElement, creates elements for the parameter passed', function() {
+    const spanTag = utils.createElement( 'span', 'A', 'char-0' );
+    expect( spanTag.nodeName ).to.eq( 'SPAN' );
+    expect( spanTag.textContent ).to.eq( 'A' );
+    expect( spanTag.className ).to.eq( 'char-0' );
   });
 });
 /* end-dev-code */
