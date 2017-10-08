@@ -8,5 +8,5 @@ function reportChange( event ) {
 }
 
 gulp.task( 'watch-test', () => {
-  gulp.watch( paths.watchMocha, [ 'build-js', reload ]).on( 'change', reportChange );
+  gulp.watch( paths.watchMocha, [ 'build-test', reload ]).on( 'change', reportChange );
 });

@@ -2,7 +2,7 @@ const gulp = require( 'gulp' );
 const browserSync = require( 'browser-sync' );
 const paths = require( '../paths' );
 
-gulp.task( 'serve-test', [ 'build-js' ], ( done ) => {
+gulp.task( 'serve-test', [ 'build-test' ], ( done ) => {
   browserSync({
     open: false,
     port: 9000,

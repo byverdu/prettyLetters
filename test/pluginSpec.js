@@ -20,7 +20,7 @@ describe( 'PrettyLetter Plugin', function() {
   it( 'should throw an error for an empty css selector', function() {
     expect(() =>  stub()).to.have.throw( 'EmptySelectorError, prettyLetters was called without any CSS selector' );
   });
-  it( 'should throw an error for an non valid css selector', function() {
+  it( 'should throw an error for a non valid css selector', function() {
     expect(() =>  stub( 'lol' )).to.have.throw( 'WrongSelectorError, prettyLetters was called with a mismatched CSS selector' );
   });
 });
