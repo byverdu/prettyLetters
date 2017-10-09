@@ -23,11 +23,14 @@ var utils = {
     var count = 0;
     var result = [];
     while ( count < sentence.length ) {
-      const span = createElement( 'span', `group-${count}`, '' );
-      const temp = sentence[ count ].map(( item, index ) => {
-        return createElement( 'b', `char-${index}`, item );
+      var span = createElement( 'span', 'group-' + count, '' );
+      var temp = sentence[ count ].map( function ( item, index ) {
+        var className = 'char-' + index;
+        return createElement( 'b', className, item );
       });
-      temp.forEach( elem => span.appendChild( elem ));
+      temp.forEach( function( elem ) {
+        span.appendChild( elem );
+      });
       result.push( span );
       count += 1;
     }
