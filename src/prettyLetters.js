@@ -35,6 +35,27 @@ function prettyLetters( selector ) {
   if ( elements.length === 0 ) {
     throw new Error( utils.wrongSelectorError );
   }
+
+  console.log(elements);
+
+  [].forEach.call( elements, function( element ) {
+    var textSplit = utils.splitText( element.textContent );
+  console.log(element, 'ine')
+  
+    var tempSpan = textSplit.map( function( text, index ) {
+      var className = 'char-' + index;
+      return utils.createElement( 'span', text,  className );
+    });
+
+    element.innerHTML = '';
+    tempSpan.forEach( function( elem ) {
+      element.appendChild( elem );
+    });
+  });
+
+  var letters2 = document.querySelectorAll( 'span[class*=char]' );
+
+  console.log(letters2.length);
 }
 
 /* dev-code */
