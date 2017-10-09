@@ -1,0 +1,46 @@
+{
+  "name": "pretty-letters",
+  "version": "1.0.0",
+  "description": "javascript plugin that modifies html tags",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byverdu/prettyLetters.git"
+  },
+  "author": "albert vallverdu <@byverdu, byverdu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byverdu/prettyLetters/issues"
+  },
+  "homepage": "https://github.com/byverdu/prettyLetters#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "browser-sync": "^2.17.5",
+    "chai": "^3.5.0",
+    "del": "^2.2.2",
+    "eslint": "^3.12.2",
+    "eslint-config-es5": "^0.5.0",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-strip-code": "^0.1.4",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.10",
+    "mocha": "^3.1.2",
+    "pump": "^1.0.2",
+    "require-dir": "^0.3.1",
+    "sinon": "^2.3.5",
+    "sinon-chai": "^2.11.0"
+  }
+}
