@@ -1,8 +1,5 @@
 // prettyLetters plugin
 
-// var emptySelectorError = 'EmptySelectorError, prettyLetters was called without any CSS selector';
-// var wrongSelectorError = 'WrongSelectorError, prettyLetters was called with a mismatched CSS selector';
-
 var utils = {
   emptySelectorError: 'EmptySelectorError, prettyLetters was called without any CSS selector',
   wrongSelectorError: 'WrongSelectorError, prettyLetters was called with a mismatched CSS selector',
@@ -16,11 +13,31 @@ var utils = {
     return sentence.split( ' ' )
     .map( function ( word ) { return word.split( '' );});
   },
-  createElement: function( tag, content, className ) {
+  createElement: function( tag, className, content ) {
     var tempTag = document.createElement( tag );
     tempTag.textContent = content;
     tempTag.className = className;
     return tempTag;
+  },
+  createElementsGroup: function( sentence, createElement ) {
+    var count = 0;
+    var result = [];
+    while ( count < sentence.length ) {
+      const span = createElement( 'span', `group-${count}`, '' );
+      const temp = sentence[ count ].map(( item, index ) => {
+        return createElement( 'b', `char-${index}`, item );
+      });
+      temp.forEach( elem => span.appendChild( elem ));
+      result.push( span );
+      count += 1;
+    }
+    return result;
+  },
+  createNewContent: function( element, content ) {
+    element.innerHTML = '';
+    content.forEach( function( elem ) {
+      element.appendChild( elem );
+    });
   }
 };
 
@@ -36,45 +53,20 @@ function prettyLetters( selector ) {
     throw new Error( utils.wrongSelectorError );
   }
 
-  var createElementsGroup = function( letters ) {
-    let count = 0;
-    const result = [];
-    while ( count < letters.length ) {
-      const span = document.createElement( 'span' );
-      span.classList.add( `group-${count}` );
-      const temp = letters[ count ].map(( item, index ) => {
-        const bTag = document.createElement( 'b' );
-        bTag.textContent = item;
-        bTag.classList.add( `char-${index}` );
-        return bTag;
-      });
-      temp.forEach( elem => span.appendChild( elem ));
-      result.push( span );
-      count ++;
-    }
-    return result;
-  };
-
   [].forEach.call( elements, function( element ) {
     if ( utils.hasWhiteSpace( element.textContent )) {
       var whiteSpaceText = utils.splitTextWhiteSpace( element.textContent );
-      var temp = createElementsGroup( whiteSpaceText );
-      element.innerHTML = '';
-      temp.forEach( function( elem ) {
-        element.appendChild( elem );
-      });
+      var tempSpanWhiteSpace = utils.createElementsGroup( whiteSpaceText, utils.createElement );
+
+      utils.createNewContent( element, tempSpanWhiteSpace );
     } else {
       var textSplit = utils.splitText( element.textContent );
-
       var tempSpan = textSplit.map( function( text, index ) {
         var className = 'char-' + index;
-        return utils.createElement( 'span', text,  className );
+        return utils.createElement( 'span',  className, text );
       });
 
-      element.innerHTML = '';
-      tempSpan.forEach( function( elem ) {
-        element.appendChild( elem );
-      });
+      utils.createNewContent( element, tempSpan );
     }
   });
 }
@@ -124,7 +116,7 @@ describe( 'Utils', function() {
       .and.is.a( 'Function' );
   });
   it( 'createElement, creates elements for the parameter passed', function() {
-    const spanTag = utils.createElement( 'span', 'A', 'char-0' );
+    const spanTag = utils.createElement( 'span', 'char-0', 'A' );
     expect( spanTag.nodeName ).to.eq( 'SPAN' );
     expect( spanTag.textContent ).to.eq( 'A' );
     expect( spanTag.className ).to.eq( 'char-0' );

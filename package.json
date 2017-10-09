@@ -42,8 +42,5 @@
     "require-dir": "^0.3.1",
     "sinon": "^2.3.5",
     "sinon-chai": "^2.11.0"
-  },
-  "dependencies": {
-    "jquery": "^3.1.1"
   }
 }
