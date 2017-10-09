@@ -36,26 +36,47 @@ function prettyLetters( selector ) {
     throw new Error( utils.wrongSelectorError );
   }
 
-  console.log(elements);
+  var createElementsGroup = function( letters ) {
+    let count = 0;
+    const result = [];
+    while ( count < letters.length ) {
+      const span = document.createElement( 'span' );
+      span.classList.add( `group-${count}` );
+      const temp = letters[ count ].map(( item, index ) => {
+        const bTag = document.createElement( 'b' );
+        bTag.textContent = item;
+        bTag.classList.add( `char-${index}` );
+        return bTag;
+      });
+      temp.forEach( elem => span.appendChild( elem ));
+      result.push( span );
+      count ++;
+    }
+    return result;
+  };
 
   [].forEach.call( elements, function( element ) {
-    var textSplit = utils.splitText( element.textContent );
-  console.log(element, 'ine')
-  
-    var tempSpan = textSplit.map( function( text, index ) {
-      var className = 'char-' + index;
-      return utils.createElement( 'span', text,  className );
-    });
+    if ( utils.hasWhiteSpace( element.textContent )) {
+      var whiteSpaceText = utils.splitTextWhiteSpace( element.textContent );
+      var temp = createElementsGroup( whiteSpaceText );
+      element.innerHTML = '';
+      temp.forEach( function( elem ) {
+        element.appendChild( elem );
+      });
+    } else {
+      var textSplit = utils.splitText( element.textContent );
 
-    element.innerHTML = '';
-    tempSpan.forEach( function( elem ) {
-      element.appendChild( elem );
-    });
+      var tempSpan = textSplit.map( function( text, index ) {
+        var className = 'char-' + index;
+        return utils.createElement( 'span', text,  className );
+      });
+
+      element.innerHTML = '';
+      tempSpan.forEach( function( elem ) {
+        element.appendChild( elem );
+      });
+    }
   });
-
-  var letters2 = document.querySelectorAll( 'span[class*=char]' );
-
-  console.log(letters2.length);
 }
 
 /* dev-code */

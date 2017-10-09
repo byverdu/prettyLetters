@@ -34,4 +34,11 @@ describe( 'PrettyLetter Plugin', function() {
     var letters2 = document.querySelectorAll( '.single2 span[class*=char]' );
     expect( letters2 ).to.have.length( 12 );
   });
+  it( 'creates groups of letters for sentences', function() {
+    prettyLetters( '.double' );
+    var group2 = document.querySelectorAll( '.double span[class*=group]' );
+    var letters2 = document.querySelectorAll( '.double b[class*=char]' );
+    expect( letters2 ).to.have.length( 12 );
+    expect( group2 ).to.have.length( 2 );
+  });
 });
