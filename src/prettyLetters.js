@@ -23,7 +23,8 @@ var utils = {
     var count = 0;
     var result = [];
     while ( count < sentence.length ) {
-      var span = createElement( 'span', 'group-' + count, '' );
+      var groupName = 'group-' + count;
+      var span = createElement( 'span', groupName, '' );
       var temp = sentence[ count ].map( function ( item, index ) {
         var className = 'char-' + index;
         return createElement( 'b', className, item );
@@ -75,11 +76,9 @@ function prettyLetters( selector ) {
 }
 
 /* dev-code */
-var stub;
 var utilsMock;
 
 before( function() {
-  stub = sinon.spy( prettyLetters );
   var utilsMock = utils;
 });
 

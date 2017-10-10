@@ -8,7 +8,7 @@ before( function() {
   pretty = stub( 'h1' );
 });
 
-describe( 'PrettyLetter Plugin', function() {
+describe( 'PrettyLetters Plugin', function() {
   it( 'is defined', function() {
     expect( stub ).not.eq( undefined );
     expect( stub.called ).to.eq( true );
