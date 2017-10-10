@@ -37,7 +37,7 @@ describe( 'PrettyLetters Plugin', function() {
   it( 'creates groups of letters for sentences', function() {
     prettyLetters( '.double' );
     var group2 = document.querySelectorAll( '.double span[class*=group]' );
-    var letters2 = document.querySelectorAll( '.double b[class*=char]' );
+    var letters2 = document.querySelectorAll( '.double span[class*=char]' );
     expect( letters2 ).to.have.length( 12 );
     expect( group2 ).to.have.length( 2 );
   });
