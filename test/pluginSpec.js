@@ -41,4 +41,17 @@ describe( 'PrettyLetters Plugin', function() {
     expect( letters2 ).to.have.length( 12 );
     expect( group2 ).to.have.length( 2 );
   });
+  it( 'classes and tags should be configurable', function() {
+    var options = {
+      charClass: 'charClass-',
+      groupClass: 'groupClass-',
+      charTag: 'b',
+      groupTag: 'i'
+    };
+    prettyLetters( '.double2', options );
+    var group2 = document.querySelectorAll( '.double2 i[class*=groupClass]' );
+    var letters2 = document.querySelectorAll( '.double2 b[class*=charClass]' );
+    expect( letters2 ).to.have.length( 14 );
+    expect( group2 ).to.have.length( 2 );
+  });
 });
