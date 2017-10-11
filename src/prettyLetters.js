@@ -64,10 +64,18 @@ var utils = {
   },
   createOptions: function( opts ) {
     var options = opts || {};
-    options.charClass = options.charClass || 'char-';
-    options.groupClass = options.groupClass || 'group-';
-    options.groupTag = options.groupTag || 'span';
-    options.charTag = options.charTag || 'span';
+    options.charClass = opts.hasOwnProperty( 'charClass' ) ?
+      opts.charClass :
+      'char-';
+    options.groupClass = opts.hasOwnProperty( 'groupClass' ) ?
+      opts.groupClass :
+      'group-';
+    options.groupTag = opts.hasOwnProperty( 'groupTag' ) ?
+      opts.groupTag :
+      'span';
+    options.charTag = opts.hasOwnProperty( 'charTag' ) ?
+      opts.charTag :
+      'span';
 
     return options;
   }
