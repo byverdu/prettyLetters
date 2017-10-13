@@ -4,6 +4,34 @@ PrettyLetters is a Javascript plugin highly inspired by Lettering.js, why do not
 
 Basically what this plugin does is to give you the ability and freedom to style any HTML tag that has some text.
 
+# How to use the plugin
+
+You will only need `prettyLetters.min.js`.
+
+You can grab them on unpkg CDN and use it like this:
+
+```xml
+<!-- Only if using it with jQuery -->
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://unpkg.com/pretty-letters@1.0.0/dist/prettyLetters.min.js"></script>  
+```
+
+or find it under `/dist/**` folder and use it like this:
+
+```xml
+<!-- Only if using it with jQuery -->
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="prettyLetters.min.js"></script>  
+```
+
+or use npm to install the plugin and require the module within your project.
+
+```javascript
+const prerttyLetters = require( 'pretty-letters' );
+
+prettyLetters( 'h2.title', {options});
+```
+
 ## How?
 
 When you pass any CSS selector to the function `prettyLetters('.myClass')` it will split the text in words and wrap individual of those with another HTML tag so you have absolute control over the text.
@@ -15,7 +43,7 @@ When you pass any CSS selector to the function `prettyLetters('.myClass')` it wi
   prettyLetters('.foo');
 </script>
 <!-- After call the method the result would be  -->
-<h2>
+<h2 class="foo">
   <span class="char-0">F</span>
   <span class="char-1">o</span>
   <span class="char-2">o</span>
@@ -27,7 +55,7 @@ When you pass any CSS selector to the function `prettyLetters('.myClass')` it wi
   prettyLetters('.fooBar');
 </script>
 <!-- After call the method the result would be  -->
-<h2>
+<h2 class="fooBar">
   <span class="group-0">
     <span class="char-0">F</span>
     <span class="char-1">o</span>
@@ -55,3 +83,5 @@ var options = {
 
 prettyLetters( 'selector', options);
 ```
+
+That is pretty much what this plugin can do.

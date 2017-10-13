@@ -11,6 +11,13 @@
       "es2015"
     ]
   },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "styles for headers",
+    "typography",
+    "lettering.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/byverdu/prettyLetters.git"
