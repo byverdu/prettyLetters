@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>PrettyLetters plugin</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="./docs.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body id="preview">
+  <a href="https://github.com/byverdu/prettyLetters" target="_blank" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="z-index: 333 ;fill:#BC051E; color:#EFEFEF; position: absolute; top: 0; border: 0; right: 0;"
+      aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+        fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+        fill="currentColor" class="octo-body"></path>
+    </svg>
+  </a>
+  <div class="wrapper">
+    <h1 class="title">
+      PrettyLetterS
+    </h1>
+    <p>PrettyLetters is a Javascript plugin highly inspired by Lettering.js, why do not use the other one? because that one
+      it is only available for jQuery and it is not registered in npm.</p>
+    <p>Basically what this plugin does is to give you the ability and freedom to style any HTML tag that has some text.</p>
+    <h1>
+      <a id="How_to_use_the_plugin_6"></a>How to use the plugin</h1>
+    <p>You will only need
+      <code>prettyLetters.min.js</code>.</p>
+    <p>You can grab them on
+      <code>unpkg CDN</code> and use it like this:</p>
+    <pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Only if using it with jQuery --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://code.jquery.com/jquery-3.1.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://unpkg.com/pretty-letters@1.0.0/dist/prettyLetters.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>  
+    </code></pre>
+    <p>or find it under
+      <code>/dist/**</code> folder and use it like this:</p>
+    <pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Only if using it with jQuery --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://code.jquery.com/jquery-3.1.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"prettyLetters.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>  
+    </code></pre>
+    <p>or use npm to install the plugin and require the module within your project.</p>
+    <pre><code class="language-javascript"><span class="hljs-keyword">const</span> prerttyLetters = <span class="hljs-built_in">require</span>( <span class="hljs-string">'pretty-letters'</span> );
+    
+    prettyLetters( <span class="hljs-string">'h2.title'</span>, {options});
+    </code></pre>
+    <h2>
+      <a id="How_34"></a>How?</h2>
+    <p>When you pass any CSS selector to the function
+      <code>prettyLetters('.myClass')</code> it will split the text in words and wrap each one of those with another HTML tag so you have absolute control over
+      the text.</p>
+    <pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Let's say you have this markup --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"foo"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+      prettyLetters(<span class="hljs-string">'.foo'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- After the method is called the result would be  --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"foo"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-0"</span>&gt;</span>F<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-1"</span>&gt;</span>o<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-2"</span>&gt;</span>o<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+    
+    <span class="hljs-comment">&lt;!-- What about a text with spaces? --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"fooBar"</span>&gt;</span>Foo Bar<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+      prettyLetters(<span class="hljs-string">'.fooBar'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- After the method is called the result would be  --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"fooBar"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"group-0"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-0"</span>&gt;</span>F<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-1"</span>&gt;</span>o<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-2"</span>&gt;</span>o<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"group-1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-0"</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-1"</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-2"</span>&gt;</span>r<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    </code></pre>
+    <p>The plugin is set with some default options that can be overwritten by passing an object as second argument to the function.</p>
+    <p>The possible options are for the CSS classes and HTML wrapper elements that will generate the function.</p>
+    <pre><code class="language-js"><span class="hljs-comment">// default values</span>
+    <span class="hljs-keyword">var</span> options = {
+      charClass: <span class="hljs-string">'char-'</span>,
+      groupClass: <span class="hljs-string">'group-'</span>,
+      charTag: <span class="hljs-string">'span'</span>,
+      groupTag: <span class="hljs-string">'span'</span>,
+    };
+    
+    prettyLetters( <span class="hljs-string">'selector'</span>, options);
+    </code></pre>
+    <p>That is pretty much what this plugin can do.</p>
+
+    <h1>Some Examples</h1>
+
+    <div class="example">
+      <h2 class="item foo">
+        Fooo
+      </h2>
+      <h2 class="item bar">
+        Bar
+      </h2>
+    </div>
+
+    <div class="example">
+      <h2 class="item foo2">
+        Foo
+      </h2>
+      <h2 class="item bar3">
+        Bar
+      </h2>
+    </div>
+
+    <h2 class="item barFoo">
+      Google FontS
+    </h2>
+
+    <h2 class="item bar2">
+      Bar
+    </h2>
+
+
+    <script src="./prettyLetters.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        prettyLetters('.title');
+        var fooBar = document.querySelectorAll( '.item' );
+        prettyLetters('.foo');
+        prettyLetters('.bar');
+        prettyLetters('.foo2');
+        prettyLetters('.bar2');
+        prettyLetters('.bar3');
+        prettyLetters('.barFoo');
+      });
+    </script>
+  </div>
+
+</body>
+
+</html>
