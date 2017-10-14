@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Press+Start+2P|Ribeye+Marrow|Alegreya+Sans|Nosifer|Faster+One|Josefin+Sans:100,400');
+
+body {
+  font: 18px 'Alegreya Sans', sans-serif;
+}
+
+h2 {
+  margin: 0;
+}
+
+.github-corner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: .8;
+  z-index: 1;
+}
+
+.wrapper {
+  max-width: 1500px;
+  width: 80%;
+  margin: 0 auto;
+  min-width: 730px;
+}
+
+.wrapper p {
+  line-height: 30px;
+  word-spacing: 3px;
+}
+
+.title {
+  text-align: center;
+  border-bottom: 10px dashed #BC051E;
+  padding-bottom: 15px;
+}
+
+.title span[class*='char'] {
+  position: relative;
+  margin: 0 7px;
+  font-family: 'Ribeye Marrow', cursive;
+  color: #BC051E;
+}
+
+.title span:nth-child(odd) {
+  font-size: 7rem;
+}
+
+.title span:nth-child(even) {
+  font-size: 3.5rem;
+  top: 10px;
+}
+
+.title span:first-child,
+.title span:last-child {
+  display: inline-block;
+  font-size: 5rem;
+}
+
+.title span:first-child {
+  transform: rotate(-30deg);
+}
+
+.title span:last-child {
+  transform: rotate(30deg);
+  top: 30px;
+}
+
+.title .char-6 {
+  top: -20px;
+}
+
+code {
+  color: #3772FF;
+}
+
+.example {
+  display: flex;
+  justify-content: space-between;
+}
+
+.example > * {
+  align-self: center;
+  flex-basis: 50%;
+}
+
+.example h2:last-of-type {
+  text-align: right;
+}
+
+.foo span[class*='char'] {
+  font-family: 'Permanent Marker', cursive;
+  color: #E0ACD5;
+  text-shadow: 3px 0 1px #2F2504;
+  margin: 0 5px;
+}
+
+.foo .char-0 {
+  font-size: 9rem;
+}
+
+.foo .char-1 {
+  font-size: 6rem;
+  color: #2F2504 !important;
+  text-shadow: 8px 0 1px #E0ACD5 !important;
+}
+
+.foo .char-2 {
+  font-size: 3rem;
+}
+
+.foo .char-3 {
+  font-size: 1rem;
+}
+
+.bar span[class*='char'] {
+  font-family: 'Press Start 2P', cursive;
+  color: #67C155;
+  text-shadow: -10px 0 1px #3F88C5;
+  margin: 0 5px;
+  animation: blink 2s infinite backwards;
+  display: inline-flex;
+}
+
+.bar .char-0 {
+  font-size: 3rem;
+}
+
+.bar .char-1 {
+  font-size: 6rem;
+}
+
+.bar .char-2 {
+  font-size: 9rem;
+}
+
+.foo2 {
+  font-family: 'Nosifer', cursive;
+  color: #BC051E;
+  margin: 0 5px;
+  height: 150px;
+  display: inline-block;
+}
+
+.foo2 .char-0 {
+  font-size: 3rem;
+  animation: grow 5s infinite backwards linear;
+}
+
+.foo2 .char-1 {
+  font-size: 6rem;
+  animation: shrink 5s infinite backwards linear;
+}
+
+.foo2 .char-2 {
+  font-size: 3rem;
+  animation: grow 5s infinite backwards linear;
+}
+
+.bar2 {
+  font-family: 'Faster One', cursive;
+  color: #610345;
+  margin: 0 0 20px;
+  font-size: 6rem;
+  animation: move 10s infinite backwards linear;
+  position: absolute;
+  text-shadow: 3px 0 1px #E3B505;
+}
+
+.bar2 span[class*='char'] {
+  margin: 0 8px;
+}
+
+.bar2 .char-1 {
+  font-size: 6rem;
+  animation: shrink 5s infinite backwards linear;
+  color: #044B7F;
+}
+
+.bar2 .char-2 {
+  font-size: 3rem;
+  animation: grow 5s infinite backwards linear;
+  color: #107E7D;
+}
+
+.bar3 span[class*='char'] {
+  text-shadow: 3px 0 1px #000;
+  color:  #E3B505;
+}
+
+.bar3 .char-0 {
+  font: 5rem 'Ribeye Marrow', cursive;  
+}
+
+.bar3 .char-1 {
+  font: 6rem 'Press Start 2P', cursive;
+}
+
+.bar3 .char-2 {
+  font: 3rem 'Permanent Marker', cursive;
+}
+
+.barFoo {
+  font: 4rem 'Josefin Sans', sans-serif;
+}
+
+.barFoo .group-0 .char-0,
+.barFoo .group-0 .char-3 {
+  color: #5386ec;
+}
+.barFoo .group-0 .char-1,
+.barFoo .group-0 .char-5 {
+  color: #d75040;
+}
+
+.barFoo .group-0 .char-2 {
+  color: #f1bd42;
+}
+
+.barFoo .group-0 .char-4 {
+  color: #5aa55c;
+}
+
+.barFoo .group-1 span[class*='char'] {
+  margin: 0 8px;
+}
+
+.barFoo .group-1 {
+  font-weight: 100;
+  font-size: 2rem;
+  color: gray;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 990px) {
+  .title span:nth-child(odd) {
+    font-size: 4rem;
+  }
+  
+  .title span:nth-child(even) {
+    font-size: 2.5rem;
+    top: 10px;
+  }
+  
+  .title span:first-child,
+  .title span:last-child {
+    display: inline-block;
+    font-size: 3rem;
+  }
+}
+
+@keyframes blink {
+  0% {
+    text-shadow: -10px 0 1px #3F88C5;
+  }
+  100% {
+    text-shadow: 10px 0 15px #3F88C5;
+  }
+}
+
+@keyframes grow {
+  0% {
+    font-size: 3rem;
+  }
+  100% {
+    font-size: 5rem;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    font-size: 6rem;
+  }
+  100% {
+    font-size: 4rem;
+  }
+}
+
+@keyframes move {
+  0% {
+    left: 0;
+  }
+  10% {
+    left: 10%;
+  }
+  20% {
+    left: 20%;
+  }
+  40% {
+    left: 40%;
+  }
+  70% {
+    left: 70%;
+  }
+  100% {
+    left: 100%;
+  }
+}

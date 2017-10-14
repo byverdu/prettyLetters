@@ -1,7 +1,7 @@
 {
   "name": "pretty-letters",
   "version": "1.0.0",
-  "description": "javascript plugin that modifies html tags",
+  "description": "javascript plugin that modifies the text inside an html tag by wrapping every single word inside another tag so each word can be styled independently",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"

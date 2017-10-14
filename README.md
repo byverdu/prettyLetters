@@ -8,7 +8,7 @@ Basically what this plugin does is to give you the ability and freedom to style 
 
 You will only need `prettyLetters.min.js`.
 
-You can grab them on unpkg CDN and use it like this:
+You can grab them on `unpkg CDN` and use it like this:
 
 ```xml
 <!-- Only if using it with jQuery -->
@@ -34,7 +34,7 @@ prettyLetters( 'h2.title', {options});
 
 ## How?
 
-When you pass any CSS selector to the function `prettyLetters('.myClass')` it will split the text in words and wrap individual of those with another HTML tag so you have absolute control over the text.
+When you pass any CSS selector to the function `prettyLetters('.myClass')` it will split the text in words and wrap each one of those with another HTML tag so you have absolute control over the text.
 
 ```xml
 <!-- Let's say you have this markup -->
@@ -42,19 +42,19 @@ When you pass any CSS selector to the function `prettyLetters('.myClass')` it wi
 <script>
   prettyLetters('.foo');
 </script>
-<!-- After call the method the result would be  -->
+<!-- After the method is called the result would be  -->
 <h2 class="foo">
   <span class="char-0">F</span>
   <span class="char-1">o</span>
   <span class="char-2">o</span>
 </h2>
 
-<!-- What about a text with sapces? -->
+<!-- What about a text with spaces? -->
 <h2 class="fooBar">Foo Bar</h2>
 <script>
   prettyLetters('.fooBar');
 </script>
-<!-- After call the method the result would be  -->
+<!-- After the method is called the result would be  -->
 <h2 class="fooBar">
   <span class="group-0">
     <span class="char-0">F</span>
