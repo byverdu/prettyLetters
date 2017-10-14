@@ -119,3 +119,26 @@ function prettyLetters(
     }
   });
 }
+
+// jQuery setup
+if ( typeof jQuery !== 'undefined' ) {
+  $.fn.prettyFormError = function( options ) {
+    var pluginName = 'prettyFormError';
+    var dataKey = 'plugin_' + pluginName;
+    return this.each( function() {
+      if ( !$.data( this, dataKey )) {
+        $.data( this, dataKey, prettyLetters( this, options ));
+      }
+    });
+  };
+}
+
+// Browser setup
+if ( !( 'prettyLetters' in window )) {
+  window.prettyLetters = prettyLetters;
+}
+
+// CommonJS support
+if ( typeof module === 'object' && typeof module.exports === 'object' ) {
+  module.exports = prettyLetters;
+}
