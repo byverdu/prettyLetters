@@ -34,7 +34,7 @@ prettyLetters( 'h2.title', {options});
 
 ## How?
 
-When you pass any CSS selector to the function `prettyLetters('.myClass')` it will split the text in words and wrap each one of those with another HTML tag so you have absolute control over the text.
+When you pass any CSS selector to the function `prettyLetters('.myClass')` it will split the text in letters and wrap each one of those with another HTML tag so you have absolute control over the text.
 
 ```xml
 <!-- Let's say you have this markup -->
