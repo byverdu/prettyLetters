@@ -13,7 +13,7 @@ You can grab them on `unpkg CDN` and use it like this:
 ```xml
 <!-- Only if using it with jQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-<script src="https://unpkg.com/pretty-letters@1.0.0/dist/prettyLetters.min.js"></script>  
+<script src="https://unpkg.com/pretty-letters@1.0.1/dist/prettyLetters.min.js"></script>  
 ```
 
 or find it under `/dist/**` folder and use it like this:
