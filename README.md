@@ -41,6 +41,9 @@ When you pass any CSS selector to the function `prettyLetters('.myClass')` it wi
 <h2 class="foo">Foo</h2>
 <script>
   prettyLetters('.foo');
+  
+  // the jQuery version would be
+  $( '.foo' ).prettyLetters();
 </script>
 <!-- After the method is called the result would be  -->
 <h2 class="foo">
@@ -53,6 +56,8 @@ When you pass any CSS selector to the function `prettyLetters('.myClass')` it wi
 <h2 class="fooBar">Foo Bar</h2>
 <script>
   prettyLetters('.fooBar');
+  // the jQuery version would be
+  $( '.fooBar' ).prettyLetters();
 </script>
 <!-- After the method is called the result would be  -->
 <h2 class="fooBar">
@@ -82,6 +87,9 @@ var options = {
 };
 
 prettyLetters( 'selector', options);
+
+// the jQuery version would be
+$( 'selector' ).prettyLetters( options );
 ```
 
 That is pretty much what this plugin can do.
