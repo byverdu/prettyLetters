@@ -5,7 +5,7 @@ var stub;
 
 before( function() {
   stub = sinon.spy( prettyLetters );
-  pretty = stub( 'h1' );
+  pretty = stub( '.empty' );
 });
 
 describe( 'PrettyLetters Plugin', function() {
@@ -14,8 +14,8 @@ describe( 'PrettyLetters Plugin', function() {
     expect( stub.called ).to.eq( true );
   });
   it( 'should be called with a css selector', function() {
-    stub( 'h1' );
-    expect( stub.calledWith( 'h1' )).to.eq( true );
+    stub( '.empty' );
+    expect( stub.calledWith( '.empty' )).to.eq( true );
   });
   it( 'should throw an error for an empty css selector', function() {
     expect(() =>  stub()).to.have.throw( 'EmptySelectorError, prettyLetters was called without any CSS selector' );

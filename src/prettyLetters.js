@@ -70,6 +70,34 @@ var utils = {
     options.charTag = options.charTag || 'span';
 
     return options;
+  },
+  runProgramBlock: function( options, element, methods ) {
+    var trimmedText = element.textContent.trim();
+    if ( methods.hasWhiteSpace( trimmedText )) {
+      var whiteSpaceText = methods.splitTextWhiteSpace( trimmedText );
+      var tempSpanWhiteSpace = methods.createElementsGroup(
+        whiteSpaceText,
+        methods.createElement,
+        options
+      );
+
+      methods.createNewContent( element, tempSpanWhiteSpace );
+    } else {
+      var textSplit = methods.splitText( trimmedText );
+      var tempSpan = textSplit.map( function( text, index ) {
+        var className = options.charClass + index;
+        return methods.createElement(
+          options.charTag,
+          className,
+          text
+        );
+      });
+
+      methods.createNewContent(
+        element,
+        tempSpan
+      );
+    }
   }
 };
 
@@ -84,46 +112,30 @@ function prettyLetters(
     throw new Error( utils.emptySelectorError );
   }
 
-  var elements = document.querySelectorAll( selector );
-  // wrongSelectorError
-  if ( elements.length === 0 ) {
-    throw new Error( utils.wrongSelectorError );
-  }
-
-  [].forEach.call( elements, function( element ) {
-    var trimmedText = element.textContent.trim();
-    if ( utils.hasWhiteSpace( trimmedText )) {
-      var whiteSpaceText = utils.splitTextWhiteSpace( trimmedText );
-      var tempSpanWhiteSpace = utils.createElementsGroup(
-        whiteSpaceText,
-        utils.createElement,
-        options
-      );
-
-      utils.createNewContent( element, tempSpanWhiteSpace );
-    } else {
-      var textSplit = utils.splitText( trimmedText );
-      var tempSpan = textSplit.map( function( text, index ) {
-        var className = options.charClass + index;
-        return utils.createElement(
-          options.charTag,
-          className,
-          text
-        );
-      });
-
-      utils.createNewContent(
-        element,
-        tempSpan
-      );
+  if ( typeof jQuery === 'undefined' ) {
+    var elements = document.querySelectorAll( selector );
+    // wrongSelectorError
+    if ( elements.length === 0 ) {
+      throw new Error( utils.wrongSelectorError );
     }
-  });
+    [].forEach.call( elements, function( element ) {
+      utils.runProgramBlock( options, element, utils );
+    });
+  } else {
+    var $elem = $( selector );
+    if ( $elem.length === 0 ) {
+      throw new Error( utils.wrongSelectorError );
+    }
+    $.each( $elem, function( index, $element ) {
+      utils.runProgramBlock( options, $element, utils );
+    });
+  }
 }
 
 // jQuery setup
 if ( typeof jQuery !== 'undefined' ) {
-  $.fn.prettyFormError = function( options ) {
-    var pluginName = 'prettyFormError';
+  $.fn.prettyLetters = function( options ) {
+    var pluginName = 'prettyLetters';
     var dataKey = 'plugin_' + pluginName;
     return this.each( function() {
       if ( !$.data( this, dataKey )) {
