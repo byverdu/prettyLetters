@@ -13,7 +13,7 @@ You can grab them on `unpkg CDN` and use it like this:
 ```xml
 <!-- Only if using it with jQuery -->
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-<script src="https://unpkg.com/pretty-letters@1.0.1/dist/prettyLetters.min.js"></script>  
+<script src="https://unpkg.com/pretty-letters@check_latest_version/dist/prettyLetters.min.js"></script>  
 ```
 
 or find it under `/dist/**` folder and use it like this:
@@ -82,7 +82,68 @@ When you pass any CSS selector to the function `prettyLetters('.myClass')` it wi
   prettyLetters();
   // Will throw Error => 'EmptySelectorError, prettyLetters was called without any CSS selector'
 </script>
+```
 
+### How to use it with React
+
+```js
+const prettyLetter = require( 'pretty-letters' );
+
+class App extends Component {
+  componentDidMount() {
+    var options = {
+      groupClass: 'lol-',
+      groupTag: 'div'
+    };
+    prettyLetter( 'h1', options );
+  }
+  render() {
+    return(
+      <div>
+        <h1>Helllo World</h1>
+      </div>
+    );
+  }
+}
+```
+
+### How to use it with Angular
+
+```xml
+<body ng-app="playground">
+  <section ng-controller="angularCtrl">
+    <h1 class="selector" pretty-letter=".selector">
+      {{title}}
+    </h1>
+  </section>
+</body>
+```
+
+```js
+const prettyLetter = require( 'pretty-letters' );
+
+angular.module('playground', [])
+  .directive('prettyLetter', function ($timeout) {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        // attrs['prettyLetter'] === '.selector'
+        $timeout(function() {
+          prettyLetter(
+            attrs['prettyLetter'],
+            scope.prettyLetterOpts
+          );
+        })
+      }
+    };
+  })
+  .controller('angularCtrl', function ( $scope ) {
+    $scope.title = 'prettyForm in Angular';
+    $scope.prettyLetterOpts = {
+      groupClass: 'lol-',
+      groupTag: 'div'
+    };
+  });
 ```
 
 The plugin is set with some default options that can be overwritten by passing an object as second argument to the function.

@@ -39,7 +39,7 @@
       <code>unpkg CDN</code> and use it like this:</p>
     <pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Only if using it with jQuery --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://code.jquery.com/jquery-3.1.1.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://unpkg.com/pretty-letters@1.0.1/dist/prettyLetters.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>  
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://unpkg.com/pretty-letters@check_latest_version/dist/prettyLetters.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>  
     </code></pre>
     <p>or find it under
       <code>/dist/**</code> folder and use it like this:</p>
@@ -86,7 +86,73 @@
         <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-1"</span>&gt;</span>a<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"char-2"</span>&gt;</span>r<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/h2&gt;</span>
+    <span class="hljs-comment">&lt;!-- Handles a couple of errors if something goes wrong. --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">h2</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"fooBar"</span>&gt;</span>Foo Bar<span class="hljs-tag">&lt;/<span class="hljs-title">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+      prettyLetters(<span class="hljs-string">'.barFoo'</span>);
+      <span class="hljs-comment">// Will throw Error =&gt; 'WrongSelectorError, prettyLetters was called with a mismatched CSS selector'</span>
+    
+      prettyLetters();
+      <span class="hljs-comment">// Will throw Error =&gt; 'EmptySelectorError, prettyLetters was called without any CSS selector'</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
     </code></pre>
+
+    <h3><a id="How_to_use_it_with_React_86"></a>How to use it with React</h3>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> prettyLetter = <span class="hljs-built_in">require</span>( <span class="hljs-string">'pretty-letters'</span> );
+    
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+      componentDidMount() {
+        <span class="hljs-keyword">var</span> options = {
+          groupClass: <span class="hljs-string">'lol-'</span>,
+          groupTag: <span class="hljs-string">'div'</span>
+        };
+        prettyLetter( <span class="hljs-string">'h1'</span>, options );
+      }
+      render() {
+        <span class="hljs-keyword">return</span>(
+          <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Helllo World<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        )</span>;
+      }
+    }
+    </code></pre>
+    <h3><a id="How_to_use_it_with_Angular_109"></a>How to use it with Angular</h3>
+    <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-title">body</span> <span class="hljs-attribute">ng-app</span>=<span class="hljs-value">"playground"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">ng-controller</span>=<span class="hljs-value">"angularCtrl"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">h1</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"selector"</span> <span class="hljs-attribute">pretty-letter</span>=<span class="hljs-value">".selector"</span>&gt;</span>
+          {{title}}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+    </code></pre>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> prettyLetter = <span class="hljs-built_in">require</span>( <span class="hljs-string">'pretty-letters'</span> );
+    
+    angular.module(<span class="hljs-string">'playground'</span>, [])
+      .directive(<span class="hljs-string">'prettyLetter'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$timeout</span>) </span>{
+        <span class="hljs-keyword">return</span> {
+          restrict: <span class="hljs-string">'A'</span>,
+          link: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">scope, element, attrs</span>) </span>{
+            <span class="hljs-comment">// attrs['prettyLetter'] === '.selector'</span>
+            $timeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+              prettyLetter(
+                attrs[<span class="hljs-string">'prettyLetter'</span>],
+                scope.prettyLetterOpts
+              );
+            })
+          }
+        };
+      })
+      .controller(<span class="hljs-string">'angularCtrl'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> $scope </span>) </span>{
+        $scope.title = <span class="hljs-string">'prettyForm in Angular'</span>;
+        $scope.prettyLetterOpts = {
+          groupClass: <span class="hljs-string">'lol-'</span>,
+          groupTag: <span class="hljs-string">'div'</span>
+        };
+      });
+    </code></pre>
+
     <p>The plugin is set with some default options that can be overwritten by passing an object as second argument to the function.</p>
     <p>The possible options are for the CSS classes and HTML wrapper elements that will generate the function.</p>
     <pre><code class="language-js"><span class="hljs-comment">// default values</span>
