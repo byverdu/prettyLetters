@@ -1,6 +1,6 @@
 {
   "name": "pretty-letters",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Javascript and jQuery versionish of Lettering.js :)",
   "main": "index.js",
   "scripts": {
