@@ -123,7 +123,6 @@ function prettyLetters(
     });
   } else {
     var $elem = $( selector );
-    console.log($elem, '$4444')
     if ( $elem.length === 0 ) {
       throw new Error( utils.wrongSelectorError );
     }

@@ -71,6 +71,18 @@ When you pass any CSS selector to the function `prettyLetters('.myClass')` it wi
     <span class="char-1">a</span>
     <span class="char-2">r</span>
   </span>
+</h2>
+
+<!-- Handles a couple of errors if something goes wrong. -->
+<h2 class="fooBar">Foo Bar</h2>
+<script>
+  prettyLetters('.barFoo');
+  // Will throw Error => 'WrongSelectorError, prettyLetters was called with a mismatched CSS selector'
+
+  prettyLetters();
+  // Will throw Error => 'EmptySelectorError, prettyLetters was called without any CSS selector'
+</script>
+
 ```
 
 The plugin is set with some default options that can be overwritten by passing an object as second argument to the function.
